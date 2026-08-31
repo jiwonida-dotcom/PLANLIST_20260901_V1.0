@@ -12,8 +12,21 @@ param([string]$m = "")
 Set-Location -LiteralPath $PSScriptRoot
 $ErrorActionPreference = "Continue"
 
-$repoUrl  = (git config --get remote.origin.url)
-$pagesUrl = "https://jiwonida-dotcom.github.io/260730planlist_0819/"
+# 2026-08-31 — 저장소 이전 (260730planlist_0819 → PLANLIST_20260901_V1.0).
+#   로컬 origin 이 옛 저장소를 가리키고 있으면 여기서 자동으로 바꿉니다.
+#   옛 저장소로 push 하면 성공 메시지가 뜨지만 배포 화면은 바뀌지 않기 때문입니다.
+$expectUrl = "https://github.com/jiwonida-dotcom/PLANLIST_20260901_V1.0.git"
+$pagesUrl  = "https://jiwonida-dotcom.github.io/PLANLIST_20260901_V1.0/"
+
+$repoUrl = (git config --get remote.origin.url)
+if ($repoUrl -ne $expectUrl) {
+    Write-Host ""
+    Write-Host "원격 주소가 현재 저장소와 다릅니다 — 자동 정정합니다" -ForegroundColor Yellow
+    Write-Host "  이전 : $repoUrl" -ForegroundColor DarkGray
+    Write-Host "  현재 : $expectUrl" -ForegroundColor DarkGray
+    git remote set-url origin $expectUrl
+    $repoUrl = (git config --get remote.origin.url)
+}
 
 Write-Host ""
 Write-Host "원격 : $repoUrl" -ForegroundColor DarkGray
@@ -85,7 +98,7 @@ if ($pushCode -eq 0 -and $local -eq $remote) {
     Write-Host ""
     Write-Host "위 오류 메시지를 그대로 Claude 에게 보여 주세요. 확인 순서 :" -ForegroundColor Yellow
     Write-Host "  1) 인증      git credential-manager 로그인 만료 · 토큰 권한" -ForegroundColor DarkGray
-    Write-Host "  2) 원격 주소 git remote -v   → 260730planlist_0819 인지" -ForegroundColor DarkGray
+    Write-Host "  2) 원격 주소 git remote -v   → PLANLIST_20260901_V1.0 인지" -ForegroundColor DarkGray
     Write-Host "  3) 원격이 앞서 있으면  git pull --rebase  후 다시 push" -ForegroundColor DarkGray
     Write-Host "  4) 네트워크  회사 프록시 · VPN" -ForegroundColor DarkGray
     exit 1

@@ -143,6 +143,24 @@ node tools/check.mjs --static           브라우저 없이 정적 검사만
 ## 5. 검증 기록
 
 ```text
+Validation ID: V-2026-08-31-01
+Commit:        기간 경과 후 요금 변경 문구 전량 제거 · C-59 철회 · 확정 사항 보호 규칙 신설
+Date:          2026-08-31
+Viewport:      1280 (Chromium · 클라우드)
+Configuration: check.mjs --status (정적 + DOM 17항목)
+Result:        PASS
+Issues:        0
+Scope:         index.html 01 · 02(E · 부록 5) · 03 · 04 · 05 · 06 /
+               CLAUDE.md · RULES(7절) · REQUIREMENTS · ORIGIN_GAP · DECISIONS ·
+               OPEN_QUESTIONS(Q-08) · PROJECT_STATE · ENVIRONMENT · HANDOFF / push.ps1
+Note:          D4 콜아웃 ↔ 명세 행 124 ↔ 124 (E 영역 12 → 11 재정렬 후)
+               D10 C-nn 66건 · 결번 0 · 중복 0 (C-59 는 코드 유지 · 「철회」 정의)
+               D12 테스트 케이스 116건 (TC-U-43 코드 유지 · 「철회」 표기)
+               D15 카드 선택 전후 크기 불변 360×298.94 (문구 행 삭제로 325.94 → 298.94)
+               18조합 --full 은 사용자 PC 에서 실행 필요
+```
+
+```text
 Validation ID: V-2026-08-20-01
 Commit:        프로세스 개편 — 검증 자동화 · 실측 단일 출처 · 문서 정정 (index.html 무변경)
 Date:          2026-08-20

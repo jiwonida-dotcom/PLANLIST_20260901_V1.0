@@ -9,9 +9,10 @@
 | 구분 | 값 |
 |---|---|
 | 로컬 작업 폴더 | `C:\Users\Administrator\Desktop\요금제 개편` |
-| 배포 URL (**현재 기준**) | https://jiwonida-dotcom.github.io/260730planlist_0819/ |
-| 구 배포 URL | https://jiwonida-dotcom.github.io/260730planlist_3/ — 살아 있으나 최신 아님 |
-| git remote | `https://github.com/jiwonida-dotcom/260730planlist_0819.git` ✅ **2026-08-19 정정 완료** |
+| 배포 URL (**현재 기준**) | https://jiwonida-dotcom.github.io/PLANLIST_20260901_V1.0/ |
+| 구 배포 URL | https://jiwonida-dotcom.github.io/260730planlist_0819/ · https://jiwonida-dotcom.github.io/260730planlist_3/ — 살아 있으나 최신 아님 |
+| git remote | `https://github.com/jiwonida-dotcom/PLANLIST_20260901_V1.0.git` ✅ **2026-08-31 전환** |
+| 원격 자동 정정 | `push.ps1` 이 실행할 때마다 `origin` 을 위 주소와 대조하고 다르면 `git remote set-url` 로 바로잡습니다 — 2026-08-31 에 로컬 `origin` 이 옛 저장소를 가리킨 채 「올릴 커밋이 없습니다」만 반복한 사고 때문 |
 | 브랜치 | `main` |
 
 ## 2. 폴더 구성
