@@ -1,0 +1,9 @@
+node_modules
+.git
+.gitignore
+.gitattributes
+.wrangler
+.assetsignore
+wrangler.jsonc
+package.json
+package-lock.json
